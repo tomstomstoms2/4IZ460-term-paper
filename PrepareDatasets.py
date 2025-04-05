@@ -114,11 +114,11 @@ def fill_missing_value_no_cols(df, column):
     return df_copy[column]
 
 
-print("\n🔧 Imputace tavg bez vytváření sloupců...")
+print("\n🔧 Imputace tavg...")
 df_weather_filtered['tavg'] = fill_missing_value_no_cols(df_weather_filtered, 'tavg')
 print("✅ Hotovo. Zbývající NaN v tavg:", df_weather_filtered['tavg'].isna().sum())
 
-print("\n🔧 Imputace pres bez vytváření sloupců...")
+print("\n🔧 Imputace pres")
 df_weather_filtered['pres'] = fill_missing_value_no_cols(df_weather_filtered, 'pres')
 print("✅ Hotovo. Zbývající NaN v pres:", df_weather_filtered['pres'].isna().sum())
 
