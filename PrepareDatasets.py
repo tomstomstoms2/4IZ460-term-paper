@@ -126,113 +126,111 @@ print("✅ Hotovo. Zbývající NaN v pres:", df_weather_filtered['pres'].isna()
 df_full = pd.merge(df_crime_filtered, df_weather_filtered, on='DATE', how='inner')
 
 
-# NORMALIZACE
-# SHOOTING
+# SHOOTING → přepis na boolean
 def normalize_shooting(val):
     if pd.isna(val): return False
-    if str(val).strip().upper() in ['1', 'Y']: return True
-    return False
-df_full['SHOOTING_FLAG'] = df_full['SHOOTING'].apply(normalize_shooting)
+    return str(val).strip().upper() in ['1', 'Y']
 
-# AVG TEMPERATURE
+df_full['SHOOTING'] = df_full['SHOOTING'].apply(normalize_shooting)
+
+# AVG TEMPERATURE (tavg → kategorie)
 def categorize_tavg(t):
     if pd.isna(t):
-        return 'neznámá'
+        return 'unknown'
     elif t < -5:
-        return 'velký mráz'
+        return 'hard freezing'
     elif t <= 0:
-        return 'mráz'
+        return 'freezing'
     elif t <= 5:
-        return 'velmi chladno'
+        return 'very cold'
     elif t <= 10:
-        return 'chladno'
+        return 'cold'
     elif t <= 15:
-        return 'mírně'
+        return 'fresh'
     elif t <= 20:
-        return 'teplo'
+        return 'warm'
     elif t <= 25:
-        return 'velmi teplo'
+        return 'very warm'
     else:
-        return 'horko'
+        return 'hot'
 
-df_full['TEMP_CAT'] = df_full['tavg'].apply(categorize_tavg)
+df_full['tavg'] = df_full['tavg'].apply(categorize_tavg)
 
-
-# WIND - BEAUFORT
+# WIND SPEED (wspd → kategorie)
 def categorize_wind_speed(w):
     if pd.isna(w):
-        return 'neznámá'
+        return 'unknown'
     elif w < 1:
-        return 'bezvětří'
+        return 'Calm'
     elif w <= 5:
-        return 'vánek'
+        return 'Light air'
     elif w <= 11:
-        return 'slabý vánek'
+        return 'Light breeze'
     elif w <= 19:
-        return 'mírný vítr'
+        return 'Gentle breeze'
     elif w <= 28:
-        return 'dosti čerstvý vítr'
+        return 'Moderate breeze'
     elif w <= 38:
-        return 'čerstvý vítr'
+        return 'Fresh breeze'
     elif w <= 49:
-        return 'silný vítr'
+        return 'Strong breeze'
     elif w <= 61:
-        return 'velmi silný vítr'
+        return 'Moderate gale'
     elif w <= 74:
-        return 'bouřlivý vítr'
+        return 'Fresh gale'
     elif w <= 88:
-        return 'silná vichřice'
+        return 'Severe gale'
     elif w <= 102:
-        return 'vichřice'
+        return 'Storm'
     elif w <= 117:
-        return 'prudká vichřice'
+        return 'Violent storm'
     else:
-        return 'orkán'
+        return 'Hurricane'
 
-df_full['WIND_CAT'] = df_full['wspd'].apply(categorize_wind_speed)
+df_full['wspd'] = df_full['wspd'].apply(categorize_wind_speed)
 
-
-# PRECIPITATION
+# PRECIPITATION (prcp → kategorie)
 def categorize_precipitation(p):
     if pd.isna(p):
-        return 'neznámá'
+        return 'unknown'
     elif p == 0.0:
-        return 'bez srážek'
+        return 'no rain'
     elif p < 1.0:
-        return 'velmi slabý déšť'
+        return 'very light'
     elif p <= 10.0:
-        return 'slabý déšť'
+        return 'light'
     elif p <= 30.0:
-        return 'mírný déšť'
+        return 'medium'
     elif p <= 70.0:
-        return 'silný déšť'
+        return 'strong'
     elif p <= 150.0:
-        return 'velmi silný déšť'
+        return 'very strong'
     else:
-        return 'extrémně silný déšť'
+        return 'extremely strong'
 
-df_full['PRCP_CAT'] = df_full['prcp'].apply(categorize_precipitation)
+df_full['prcp'] = df_full['prcp'].apply(categorize_precipitation)
 
-# PRESSURE
+# PRESSURE (pres → kategorie)
 def categorize_pressure_fine(p):
     if pd.isna(p):
-        return 'neznámá'
+        return 'unknown'
     elif p < 995:
-        return 'extrémně nízký tlak'
+        return 'extremely low'
     elif p <= 999.9:
-        return 'velmi nízký tlak'
+        return 'very low'
     elif p <= 1005:
-        return 'nízký tlak'
+        return 'low'
     elif p <= 1010:
-        return 'normální tlak'
+        return 'normal'
     elif p <= 1015:
-        return 'vysoký tlak'
+        return 'high'
     elif p <= 1020:
-        return 'velmi vysoký tlak'
+        return 'very high'
     else:
-        return 'extrémně vysoký tlak'
+        return 'extremely high'
 
-df_full['PRES_CAT'] = df_full['pres'].apply(categorize_pressure_fine)
+df_full['pres'] = df_full['pres'].apply(categorize_pressure_fine)
+
 
 
 
