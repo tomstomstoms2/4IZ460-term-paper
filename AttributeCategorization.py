@@ -10,10 +10,10 @@ pd.set_option('display.width', 200)
 # Pomocná funkce pro ignorované sloupce
 def is_excluded(col):
     col_lower = col.lower()
-    return any(x in col_lower for x in ['date', 'time', 'lat', 'long'])
+    return any(x in col_lower for x in ['date', 'time', 'lat', 'long', 'location', 'Incident'])
 
 # Přesměrování výstupu do souboru
-with open("profil_datasets.txt", "w", encoding="utf-8") as f:
+with open("data/profil_datasets.txt", "w", encoding="utf-8") as f:
     def write(line=""):
         f.write(line + "\n")
 
@@ -29,14 +29,18 @@ with open("profil_datasets.txt", "w", encoding="utf-8") as f:
     print("=== Kategorie proměnných (zkráceně) ===")
     write("=== Kategorie proměnných ===")
     for col in categorical.columns:
-        if is_excluded(col):
-            continue
-
         unique_vals = df[col].dropna().unique()
-        print(f"{col:30} | {len(unique_vals):5} hodnot")
-        write(f"{col:30} | unikátních: {len(unique_vals):5} | chybějících: {df[col].isnull().sum():5}")
-        for val in unique_vals:
-            write(f"  - {val}")
+        num_unique = len(unique_vals)
+        num_missing = df[col].isnull().sum()
+
+        # Vždy vypiš shrnutí
+        print(f"{col:30} | {num_unique:5} hodnot")
+        write(f"{col:30} | unikátních: {num_unique:5} | chybějících: {num_missing:5}")
+
+        # Hodnoty vypiš pouze pokud sloupec není ignorován
+        if not is_excluded(col):
+            for val in unique_vals:
+                write(f"  - {val}")
         write()
 
     # Číselné proměnné
@@ -51,8 +55,18 @@ with open("profil_datasets.txt", "w", encoding="utf-8") as f:
     # Chybějící hodnoty
     write("=== Chybějící hodnoty v číselných sloupcích ===")
     print("\n=== Chybějící hodnoty v číselných sloupcích ===")
-    for col in numerical.columns:
-        missing = df[col].isnull().sum()
-        if missing > 0:
-            print(f"{col:30} | chybějících: {missing}")
-            write(f"{col:30} | chybějících: {missing}")
+    for col in categorical.columns:
+        unique_vals = df[col].dropna().unique()
+        num_unique = len(unique_vals)
+        num_missing = df[col].isnull().sum()
+
+        # Vždy vypiš shrnutí
+        print(f"{col:30} | {num_unique:5} hodnot")
+        write(f"{col:30} | unikátních: {num_unique:5} | chybějících: {num_missing:5}")
+
+        # Hodnoty vypiš pouze pokud sloupec není ignorován
+        if not is_excluded(col):
+            for val in unique_vals:
+                write(f"  - {val}")
+        write()
+
