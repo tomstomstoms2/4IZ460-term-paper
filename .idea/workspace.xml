@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fd6eb825-2a76-49e2-89c4-522676df0eef" name="Changes" comment="Otazka 2 4ft">
-      <change afterPath="$PROJECT_DIR$/otazka3v2.py" afterDir="false" />
+    <list default="true" id="fd6eb825-2a76-49e2-89c4-522676df0eef" name="Changes" comment="Otazka 9 SD4ft">
+      <change afterPath="$PROJECT_DIR$/otázka 10.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/otazka3.py" beforeDir="false" afterPath="$PROJECT_DIR$/otazka3.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,6 +55,7 @@
     "Python.Question1.executor": "Run",
     "Python.otazka3.executor": "Run",
     "Python.otazka3v2.executor": "Run",
+    "Python.otázka 10.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "git-widget-placeholder": "master",
@@ -98,7 +98,8 @@
       <workItem from="1743876470624" duration="3238000" />
       <workItem from="1744632293325" duration="960000" />
       <workItem from="1746706034634" duration="12358000" />
-      <workItem from="1746719321735" duration="13261000" />
+      <workItem from="1746719321735" duration="13732000" />
+      <workItem from="1746820560551" duration="2892000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit + data acquisition and preparation">
       <option name="closed" value="true" />
@@ -156,7 +157,15 @@
       <option name="project" value="LOCAL" />
       <updated>1746725579986</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Otazka 9 SD4ft">
+      <option name="closed" value="true" />
+      <created>1746739467429</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1746739467429</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -181,7 +190,8 @@
     <MESSAGE value="prubezna zprava update" />
     <MESSAGE value="attribute profile" />
     <MESSAGE value="Otazka 2 4ft" />
-    <option name="LAST_COMMIT_MESSAGE" value="Otazka 2 4ft" />
+    <MESSAGE value="Otazka 9 SD4ft" />
+    <option name="LAST_COMMIT_MESSAGE" value="Otazka 9 SD4ft" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/4IZ460$Jaké_OFFENSE_CODE_GROUP_mají_stelbu_alespo_v_10__pípad.coverage" NAME="Jaké OFFENSE_CODE_GROUP mají střelbu alespoň v 10% případů Coverage Results" MODIFIED="1746719759615" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
@@ -192,6 +202,7 @@
     <SUITE FILE_PATH="coverage/4IZ460$PrepareDatasets.coverage" NAME="PrepareDatasets Coverage Results" MODIFIED="1744632394544" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/4IZ460$Question1.coverage" NAME="Question1 Coverage Results" MODIFIED="1746714033719" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/4IZ460$otazka3v2.coverage" NAME="otazka3v2 Coverage Results" MODIFIED="1746731630263" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/4IZ460$otázka_10.coverage" NAME="otázka 10 Coverage Results" MODIFIED="1746822209962" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/4IZ460$4ft_Jaký_je_nejpravdpodobnjí_zloin_v_korelaci_s_prmrnou_denní_teplotou_a_dni_v_týdnu.coverage" NAME="4ft Jaký je nejpravděpodobnější zločin v korelaci s průměrnou denní teplotou a dni v týdnu Coverage Results" MODIFIED="1746720160315" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
